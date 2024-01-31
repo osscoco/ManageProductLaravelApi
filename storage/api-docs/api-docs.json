@@ -1,0 +1,225 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Manage Product Laravel Api",
+        "description": "Documentation pour Swagger API",
+        "contact": {
+            "name": "corentin.jeannot2a@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://deploytestproduction.test/"
+        }
+    ],
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "AUTH"
+                ],
+                "summary": "Login",
+                "description": "Login",
+                "operationId": "ea0c60c8795aeb33c39a1c2001e74b03",
+                "requestBody": {
+                    "description": "Identifiants",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email, password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Utilisateur connecté & token"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "AUTH"
+                ],
+                "summary": "Register",
+                "description": "Register",
+                "operationId": "f1c98041d92c8158b4bc67af0d1bb9b9",
+                "requestBody": {
+                    "description": "Utilisateur",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name, email, password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Utilisateur créé"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/generateRootAccount": {
+            "get": {
+                "tags": [
+                    "AUTH"
+                ],
+                "summary": "Generate Root Account",
+                "description": "Generate Root Account",
+                "operationId": "0eb983f1b6920c54398df16cf868fdcb",
+                "responses": {
+                    "200": {
+                        "description": "Administrateur créé"
+                    }
+                }
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "AUTH"
+                ],
+                "summary": "User Auth",
+                "description": "User Auth",
+                "operationId": "8b6b29397856960a9a62c4608d2938c8",
+                "responses": {
+                    "200": {
+                        "description": "Utilisateur actuellement connecté"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/logout": {
+            "get": {
+                "tags": [
+                    "AUTH"
+                ],
+                "summary": "Logout",
+                "description": "Logout",
+                "operationId": "f10e1dbba3101c3ef23ec7cb10af4bdb",
+                "responses": {
+                    "200": {
+                        "description": "Utilisateur déconnecté"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/production-step-3": {
+            "get": {
+                "tags": [
+                    "PRODUCTION"
+                ],
+                "summary": "Production Step 3",
+                "description": "Production Step 3",
+                "operationId": "300fba9bf3f69cc624ca7c5aed0d2e4e",
+                "responses": {
+                    "200": {
+                        "description": "Etape 3 Production terminée"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/production-step-7": {
+            "get": {
+                "tags": [
+                    "PRODUCTION"
+                ],
+                "summary": "Production Step 7",
+                "description": "Production Step 7",
+                "operationId": "d7fec5a0c842e42268de622bd2b14ab1",
+                "responses": {
+                    "200": {
+                        "description": "Etape 7 Production terminée"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/swagger-generate": {
+            "get": {
+                "tags": [
+                    "SWAGGER"
+                ],
+                "summary": "Swagger Generate",
+                "description": "Swagger Generate",
+                "operationId": "29b461311510bcddfd064e357498fc1a",
+                "responses": {
+                    "200": {
+                        "description": "Regénérer Swagger"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
